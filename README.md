@@ -8,32 +8,32 @@ The main challenges and obstacles were the different poses of the head and too m
 Reducing the number of points specially the jaw, mouth, nose and eyes. The jaw and mouth have a lot of errors. Improvments in annodation data is very much need due to less variety of data.
 
 # Model
-model = tf.keras.models.Sequential([
-    tf.compat.v1.keras.layers.Conv2D(16, (3, 3), input_shape=(256, 256, 3), padding='same', activation=tf.nn.relu, kernel_regularizer=tf.keras.regularizers.l2(0.0001)),
-    tf.keras.layers.MaxPooling2D(pool_size=(2,2),padding='same'),
-    tf.keras.layers.Dropout(0.3),
-    
-    tf.compat.v1.keras.layers.Conv2D(32, (3, 3), padding='same', activation=tf.nn.relu, kernel_regularizer=tf.keras.regularizers.l2(0.0001)),
-    tf.keras.layers.MaxPooling2D(pool_size=(2,2),padding='same'),
-    tf.keras.layers.Dropout(0.4),
-    
-    tf.compat.v1.keras.layers.Conv2D(64, (3, 3), padding='same', activation=tf.nn.relu, kernel_regularizer=tf.keras.regularizers.l2(0.0001)),
-    tf.keras.layers.MaxPooling2D(pool_size=(2,2),padding='same'),
-    tf.keras.layers.Dropout(0.5),
-    
-    tf.compat.v1.keras.layers.Conv2D(128, (3, 3), padding='same', activation=tf.nn.relu, kernel_regularizer=tf.keras.regularizers.l2(0.0001)),
-    tf.keras.layers.MaxPooling2D(pool_size=(2,2),padding='same'),
-    tf.keras.layers.Dropout(0.5),
-    
-    tf.compat.v1.keras.layers.Conv2D(256, (3, 3), padding='same', activation=tf.nn.relu, kernel_regularizer=tf.keras.regularizers.l2(0.0001)), 
-    tf.keras.layers.Dropout(0.5),
-    tf.keras.layers.Flatten(),
-    
-    tf.keras.layers.Dense(256, activation=tf.nn.relu, use_bias=True, kernel_regularizer=tf.keras.regularizers.l2(0.0001)),
-    tf.keras.layers.Dense(512, activation=tf.nn.relu, use_bias=True, kernel_regularizer=tf.keras.regularizers.l2(0.0001)),
-    tf.keras.layers.Dense(512, activation=tf.nn.relu, use_bias=True, kernel_regularizer=tf.keras.regularizers.l2(0.0001)),
-    tf.keras.layers.Dense(388)
-])
+    model = tf.keras.models.Sequential([
+        tf.compat.v1.keras.layers.Conv2D(16, (3, 3), input_shape=(256, 256, 3), padding='same', activation=tf.nn.relu,        kernel_regularizer=tf.keras.regularizers.l2(0.0001)),
+        tf.keras.layers.MaxPooling2D(pool_size=(2,2),padding='same'),
+        tf.keras.layers.Dropout(0.3),
+
+        tf.compat.v1.keras.layers.Conv2D(32, (3, 3), padding='same', activation=tf.nn.relu, kernel_regularizer=tf.keras.regularizers.l2(0.0001)),
+        tf.keras.layers.MaxPooling2D(pool_size=(2,2),padding='same'),
+        tf.keras.layers.Dropout(0.4),
+
+        tf.compat.v1.keras.layers.Conv2D(64, (3, 3), padding='same', activation=tf.nn.relu, kernel_regularizer=tf.keras.regularizers.l2(0.0001)),
+        tf.keras.layers.MaxPooling2D(pool_size=(2,2),padding='same'),
+        tf.keras.layers.Dropout(0.5),
+
+        tf.compat.v1.keras.layers.Conv2D(128, (3, 3), padding='same', activation=tf.nn.relu, kernel_regularizer=tf.keras.regularizers.l2(0.0001)),
+        tf.keras.layers.MaxPooling2D(pool_size=(2,2),padding='same'),
+        tf.keras.layers.Dropout(0.5),
+
+        tf.compat.v1.keras.layers.Conv2D(256, (3, 3), padding='same', activation=tf.nn.relu, kernel_regularizer=tf.keras.regularizers.l2(0.0001)), 
+        tf.keras.layers.Dropout(0.5),
+        tf.keras.layers.Flatten(),
+
+        tf.keras.layers.Dense(256, activation=tf.nn.relu, use_bias=True, kernel_regularizer=tf.keras.regularizers.l2(0.0001)),
+        tf.keras.layers.Dense(512, activation=tf.nn.relu, use_bias=True, kernel_regularizer=tf.keras.regularizers.l2(0.0001)),
+        tf.keras.layers.Dense(512, activation=tf.nn.relu, use_bias=True, kernel_regularizer=tf.keras.regularizers.l2(0.0001)),
+        tf.keras.layers.Dense(388)
+    ])
 
 I have added Dropout layers and Reguralized the model to reduce overfitting and underfitting. I had Early Stopping in place, but it did not work well.
 
